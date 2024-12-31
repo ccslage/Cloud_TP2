@@ -1,0 +1,7 @@
+# Dependências de MLRules.py
+numpy
+pandas
+
+# Outros pacotes adicionais
+flask
+joblib

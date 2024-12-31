@@ -1,0 +1,21 @@
+# Dockerfile MLserver
+
+# Usando a imagem base do Python 3.12.8
+FROM python:3.12.8-slim
+
+# Definindo o diretório de trabalho
+WORKDIR /app
+
+# Copiando o arquivo de requisitos específico e MLServer.py para o contêiner
+COPY requirements.MLServer.txt .
+COPY MLServer.py .
+
+# Instalando as dependências
+RUN pip install --no-cache-dir -r requirements.MLServer.txt
+
+# Expondo a porta 5000
+EXPOSE 5000
+
+# Comando para executar MLServer.py
+CMD ["python", "MLServer.py"]
+
