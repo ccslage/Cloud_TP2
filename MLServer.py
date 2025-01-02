@@ -3,9 +3,8 @@ import pandas as pd
 import re
 
 app = Flask(__name__)
-
 # Load the pivoted DataFrame once when the server starts
-pivoted_df = pd.read_csv('C:\\Users\\carlo\\OneDrive\\Documents\\GitHub\\Cloud\\TP2\\rules_search_table.csv')
+pivoted_df = pd.read_csv('/app/data/rules_search_table.csv')
 
 # Function to find consequents
 def find_consequents(track_name):
