@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mlserver-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mlserver
+  template:
+    metadata:
+      labels:
+        app: mlserver
+    spec:
+      containers:
+      - name: mlserver-container
+        image: carloslage67/cloud_computing_tp2:latest
+        ports:
+        - containerPort: 5000  # Port where your Flask app runs
