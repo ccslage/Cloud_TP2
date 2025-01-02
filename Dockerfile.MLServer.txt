@@ -9,6 +9,7 @@ WORKDIR /app
 # Copiando o arquivo de requisitos específico e MLServer.py para o contêiner
 COPY requirements.MLServer.txt .
 COPY MLServer.py .
+COPY index.html .
 
 # Instalando as dependências
 RUN pip install --no-cache-dir -r requirements.MLServer.txt

@@ -5,3 +5,4 @@ pandas
 # Outros pacotes adicionais
 flask
 joblib
+flask_cors

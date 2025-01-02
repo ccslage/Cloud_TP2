@@ -1,8 +1,12 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_from_directory
+from flask_cors import CORS
+
 import pandas as pd
 import re
+import os
 
 app = Flask(__name__)
+CORS(app)  # This will enable CORS for all routes
 # Load the pivoted DataFrame once when the server starts
 pivoted_df = pd.read_csv('/app/data/rules_search_table.csv')
 
@@ -30,6 +34,10 @@ def get_recommendations():
         recommendations[song] = find_consequents(song)
     
     return jsonify(recommendations)
+
+@app.route('/')
+def serve_index():
+    return send_from_directory(os.getcwd(), 'index.html')
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')

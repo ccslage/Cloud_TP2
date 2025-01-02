@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Song Recommendation System</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        #recommendations { margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h1>Song Recommendation System</h1>
+    <input type="text" id="songInput" placeholder="Enter song name" />
+    <button onclick="getRecommendations()">Get Recommendations</button>
+    <div id="recommendations"></div>
+    <div id="error" style="color: red;"></div>
+
+    <script>
+        async function getRecommendations() {
+            const songInput = document.getElementById('songInput').value;
+            const errorDiv = document.getElementById('error');
+            errorDiv.innerText = ''; // Clear previous errors
+            
+            if (songInput.trim() === '') {
+                errorDiv.innerText = 'Please enter a song name.';
+                return;
+            }
+
+            try {
+                const response = await fetch('http://127.0.0.1:5000/recommendations', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ songs: [songInput] }),
+                });
+
+                if (!response.ok) {
+                    throw new Error('Network response was not ok ' + response.statusText);
+                }
+
+                const data = await response.json();
+                displayRecommendations(data[songInput]);
+            } catch (error) {
+                console.error('Error fetching recommendations:', error);
+                errorDiv.innerText = 'Error fetching recommendations. Please try again.';
+            }
+        }
+
+        function displayRecommendations(recommendedSongs) {
+            const recommendationsDiv = document.getElementById('recommendations');
+            if (recommendedSongs && recommendedSongs.length > 0) {
+                recommendationsDiv.innerText = `Recommended Songs: ${recommendedSongs.join(', ')}`;
+            } else {
+                recommendationsDiv.innerText = "No Recommendations";
+            }
+        }
+    </script>
+</body>
+</html>
