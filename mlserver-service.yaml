@@ -3,10 +3,11 @@ kind: Service
 metadata:
   name: mlserver-service
 spec:
-  type: LoadBalancer  # Change to NodePort if you prefer
+  type: NodePort
   selector:
     app: mlserver
   ports:
     - protocol: TCP
       port: 80  # Port exposed by the service
       targetPort: 5000  # Port your container listens on
+      nodePort: 30000  # Optional: specify a port if you'd like, otherwise it will choose a random one
