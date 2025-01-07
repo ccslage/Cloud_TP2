@@ -1,0 +1,17 @@
+# Dockerfile Client
+
+# Using the Python 3.12.8 slim image
+FROM python:3.12.8-slim
+
+# Set the working directory
+WORKDIR /app
+
+# Copy requirements for the client and client.py into the container
+COPY requirements.Client.txt .
+COPY client.py .
+
+# Install the dependencies
+RUN pip install --no-cache-dir -r requirements.Client.txt
+
+# Command to run the client
+CMD ["python", "client.py"]
