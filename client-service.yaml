@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: client-service
+spec:
+  type: ClusterIP  # You can change to NodePort if you want to expose it externally
+  selector:
+    app: client
+  ports:
+    - protocol: TCP
+      port: 80  # Port exposed by the service
+      targetPort: 80  # Port your container listens on (should match client-container port)

@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: mlserver-container
-        image: carloslage67/cloud_computing_tp2:latest
+        image: carloslage67/cloud_computing_tp2:mlserver
         ports:
         - containerPort: 5000  # Port where your Flask app runs

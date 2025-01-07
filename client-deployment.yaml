@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: client-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: client
+  template:
+    metadata:
+      labels:
+        app: client
+    spec:
+      containers:
+      - name: client-container
+        image: carloslage67/cloud_computing_tp2:client  # Update to the correct image tag
+        ports:
+        - containerPort: 80  # Change to your client's port if applicable
