@@ -3,7 +3,7 @@ import os
 
 def get_recommendations(track_names):
     # Use environment variable or default to localhost for local testing
-    url = os.getenv('MLSERVICE_URL', 'http://localhost:5000/recommendations')  
+    url = os.getenv('MLSERVICE_URL', 'http://mlserver:5000/recommendations')
     payload = {'songs': track_names}
     
     try:
