@@ -5,10 +5,10 @@ metadata:
   namespace: carloslage
 spec:
   accessModes:
-    - ReadWriteMany  # Ensure it matches the PV access mode
+    - ReadWriteMany
   resources:
     requests:
-      storage: 1Gi  # Specify the storage size
+      storage: 500Mi  # Adjust storage size as needed
   selector:
     matchLabels:
-      type: local  # Adjust this if needed based on your PV's labels
+      type: local
