@@ -19,8 +19,8 @@ spec:
         - containerPort: 5000
         volumeMounts:
         - name: data-volume
-          mountPath: /app/data  # Where your CSV will be available in the container
+          mountPath: /app/data  # Mount the PVC here
       volumes:
       - name: data-volume
-        hostPath:
-          path: /home/carloslage/project2-pv  # Path on your host machine
+        persistentVolumeClaim:
+          claimName: my-volume-claim  # Reference the name of your PVC

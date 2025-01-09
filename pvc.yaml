@@ -8,7 +8,7 @@ spec:
     - ReadWriteMany
   resources:
     requests:
-      storage: 500Mi  # Adjust storage size as needed
+      storage: 1Gi  # Adjust storage size as needed
   selector:
     matchLabels:
       type: local
