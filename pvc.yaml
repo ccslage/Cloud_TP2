@@ -2,13 +2,14 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: my-volume-claim
-  namespace: carloslage
+  namespace: carloslage  # Your Kubernetes namespace
 spec:
   accessModes:
-    - ReadWriteMany
+    - ReadWriteMany  # This should match the PV's access mode
   resources:
     requests:
-      storage: 1Gi  # Adjust storage size as needed
+      storage: 1Gi  # This should match or be less than the PV capacity
+  storageClassName: default-storage-class-carloslage  # Change this to your required format
   selector:
     matchLabels:
-      type: local
+      type: local  # Ensure this matches the label on the PV
