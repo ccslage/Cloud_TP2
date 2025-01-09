@@ -17,10 +17,15 @@ spec:
         image: carloslage67/cloud_computing_tp2:mlserver
         ports:
         - containerPort: 5000
+        resources:
+          requests:
+            memory: "256Mi"  # Adjust this based on your cluster's available resources
+          limits:
+            memory: "256Mi"
         volumeMounts:
         - name: data-volume
-          mountPath: /app/data  # Mount the PVC here
+          mountPath: /app/data
       volumes:
       - name: data-volume
         persistentVolumeClaim:
-          claimName: my-volume-claim  # Reference the name of your PVC
+          claimName: my-volume-claim
