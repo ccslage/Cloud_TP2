@@ -1,11 +1,14 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: my-volume-claim  # Name for your PVC
-  namespace: carloslage   # Use your namespace
+  name: my-volume-claim
+  namespace: carloslage
 spec:
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany  # Ensure it matches the PV access mode
   resources:
     requests:
-      storage: 1Gi  # Must match the PV capacity
+      storage: 1Gi  # Specify the storage size
+  selector:
+    matchLabels:
+      type: local  # Adjust this if needed based on your PV's labels
