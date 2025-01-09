@@ -16,4 +16,11 @@ spec:
       - name: mlserver-container
         image: carloslage67/cloud_computing_tp2:mlserver
         ports:
-        - containerPort: 5000  # Port where your Flask app runs
+        - containerPort: 5000
+        volumeMounts:
+        - name: data-volume
+          mountPath: /app/data  # Where your CSV will be available in the container
+      volumes:
+      - name: data-volume
+        hostPath:
+          path: /home/carloslage/project2-pv  # Path on your host machine
