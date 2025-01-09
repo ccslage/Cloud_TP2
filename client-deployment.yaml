@@ -14,6 +14,7 @@ spec:
     spec:
       containers:
       - name: client-container
-        image: carloslage67/cloud_computing_tp2:client  # Update to the correct image tag
-        ports:
-        - containerPort: 80  # Change to your client's port if applicable
+        image: carloslage67/cloud_computing_tp2:client
+        env:
+        - name: MLSERVICE_URL
+          value: "http://mlserver:5000/recommendations"  # Ensure this points to the mlserver service
