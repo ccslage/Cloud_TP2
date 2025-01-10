@@ -8,7 +8,7 @@ spec:
     - ReadWriteMany  # This should match the PV's access mode
   resources:
     requests:
-      storage: 1Gi  # This should match or be less than the PV capacity
+      storage: 500Mi  # This should match or be less than the PV capacity
   storageClassName: default-storage-class-carloslage  # Change this to your required format
   selector:
     matchLabels:
