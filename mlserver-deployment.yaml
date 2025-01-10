@@ -28,4 +28,4 @@ spec:
       volumes:
       - name: data-volume
         persistentVolumeClaim:
-          claimName: my-volume-claim
+          claimName: project2-pv-carloslage-claim
