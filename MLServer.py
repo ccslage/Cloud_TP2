@@ -1,3 +1,21 @@
+#----------------------------------------------------------------------------------------------------------------------------------------------
+#  Project 2: DevOps and Cloud Computing
+#
+#  Discipline: Cloud Computing
+#
+#  Author: Carlos Cezar Silva Lage
+#
+#----------------------------------------------------------------------------------------------------------------------------------------------
+
+#----------------------------------------------------------------------------------------------------------------------------------------------
+#  MLServer: API REST SERVER
+#
+#  Description: Receive the music used as search key, runs the ML algorithm and returns the list of musics recommended
+#
+#  Output: List of musics recommended
+#
+#----------------------------------------------------------------------------------------------------------------------------------------------
+#
 from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
 
