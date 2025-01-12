@@ -1,3 +1,22 @@
+#----------------------------------------------------------------------------------------------------------------------------------------------
+#  Project 2: DevOps and Cloud Computing
+#
+#  Discipline: Cloud Computing
+#
+#  Author: Carlos Cezar Silva Lage
+#
+#----------------------------------------------------------------------------------------------------------------------------------------------
+
+#----------------------------------------------------------------------------------------------------------------------------------------------
+#  Client: API REST CLIENT
+#
+#  Description: Implements the IHM to get the music used as search key from user, send to MLServer and receive the list of musics recommended
+#               from it end show this list to user in the web browser
+#
+#  Output: Shows the list of musics recommended to user in web browser
+#
+#----------------------------------------------------------------------------------------------------------------------------------------------
+#
 import requests
 import os
 
